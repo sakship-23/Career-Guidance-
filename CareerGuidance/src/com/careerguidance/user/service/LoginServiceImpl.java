@@ -8,7 +8,6 @@ public class LoginServiceImpl {
 	public void login() {
 		
 		LoginDaoImpl loginDaoImpl=new LoginDaoImpl();
-		loginDaoImpl.login();
 		
 	}
 

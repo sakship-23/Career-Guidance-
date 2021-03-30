@@ -1,9 +1,19 @@
+<%@page import="com.careerguidance.user.bean.Institute"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="/css/loginstyle.css" rel="stylesheet" type="text/css">
+<script>
+	function container() {
+
+		location.replace("http://localhost:8080/CareerGuidance/login.jsp")
+	}
+	
+</script>
 <title>Insert title here</title>
 <style>
 table, th, td {
@@ -16,14 +26,14 @@ table, th, td {
 .button {
 	background-color: white;
 	border: none;
-	color: white;
+	color: black;
 	font-size: 16px;
 	margin: 7px 5px;
 }
 
 .button {
 	background-color: white;
-	color: white;
+	color: black;
 	border: black;
 }
 
@@ -50,50 +60,67 @@ table, th, td {
 	background-color: red;
 	color: white;
 }
+
+.button1 {
+	background-color: white;
+	border: none;
+	color: white;
+	font-size: 12px;
+	margin: 2px 1px;
+	padding: 8px 30px;
+}
+
+.button1 {
+	background-color: red ; 
+	color: white;
+}
+
+.button1:hover {
+	background-color: #FF726F;
+	color: white;
+}
 </style>
 </head>
 
 <body>
+<div align="right">
+     <%
+	String name = (String)session.getAttribute("name");
+%>
+    			<button onclick="container()" class="button1" >Logout</button>
+    				<h3 style="color: #8B0000"><%=name %> </h3> 
+    				 
+    </div>
 	<div align="center">
 		<h1 style="color: #000080">INSTITUTE</h1>
 
 		<table id="myTable">
 			<tr align="center" class="new">
-				<th style="color: #000080">Firstname</th>
-				<th style="color: #000080">Lastname</th>
-				<th style="color: #000080">Age</th>
+				<th style="color: #000080">Institute</th>
+			    <th style="color: #000080">Location</th>
+				<th style="color: #000080">Actions</th>
 			</tr>
+			
+			<%
+			List<Institute> institutes = (List<Institute>)session.getAttribute("institutes");
+			for(Institute institute : institutes) {
+                %>
 			<tr align="center">
-				<td>Jill</td>
-				<td>Smith</td>
-				<td>50</td>
+			
+			 <td> <%= institute.getInstituteName()%></td>
+			 <td> <%= institute.getLocationName()%></td>
+			
+			
+			 
 				<td><input type="submit" style="color: #000080" value="MODIFY"
-					onClick="validate()" class="button"></td>
-				<td><input type="button" value="Delete Row"
+					onClick="validate()" class="button">
+				<input type="button" value="Delete Row"
 					onclick="document.getElementById('myTable').deleteRow('1')"
 					style="color: #000080" class="area"></td>
 			</tr>
-			<tr align="center">
-				<td>Eve</td>
-				<td>Jackson</td>
-				<td>94</td>
-				<td><input type="submit" style="color: #000080" value="MODIFY"
-					onClick="validate()" class="button"></td>
-				<td><input type="button" value="Delete Row"
-					onclick="document.getElementById('myTable').deleteRow('2')"
-					style="color: #000080" class="area"></td>
-			</tr>
-			<tr align="center">
-				<td>John</td>
-				<td>Doe</td>
-				<td>80</td>
-				<td><input type="submit" style="color: #000080" value="MODIFY"
-					onClick="validate()" class="button"></td>
-				<td><input type="button" value="Delete Row"
-					onclick="document.getElementById('myTable').deleteRow('3')"
-					style="color: #000080" class="area"></td>
-			</tr>
-
+			
+			 <%}%>
+					
 		</table>
 		<h2>
 			<input type="submit" style="color: red" value="ADD"

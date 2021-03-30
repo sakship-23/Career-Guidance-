@@ -2,48 +2,30 @@ package com.careerguidance.user.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.*;
 
 import com.careerguidance.user.bean.User;
+import com.careerguidance.user.common.DatabaseConnection;
 
-public class LoginDaoImpl {
-	private String dburl = "jdbc:mysql://localhost:3306/careerguidance";
-	private String dbuname = "root";
-	private String dbpassword = "root";
-	private String dbdriver = "com.mysql.jdbc.Driver";
-
-	public void loadDriver(String dbDriver) {
-		try {
-			Class.forName(dbDriver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public Connection getConnection() {
-		Connection con = null;
-		try {
-			con = DriverManager.getConnection(dburl, dbuname, dbpassword);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return con;
-	}
-
-	public void login() {
-
-	}
-
+public class LoginDaoImpl { 
+	
+	
+	
 	public String insert(User user) 
 	{
-		loadDriver(dbdriver);
-		Connection con = getConnection();
+		DatabaseConnection databaseCon=new DatabaseConnection();
+		databaseCon.loadDriver();
+		Connection con = databaseCon.getConnection();
 		String result = "Data entered successfully";
-		String sql = "insert into user values(null,?,?)";
+		String sql = "insert into user values(null,?,?,?,?)";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, user.getUname());
-			ps.setString(2, user.getPassword());
+			ps.setString(2, user.getPasswd());
+			ps.setString(3, user.getFirstname());
+			ps.setString(4, user.getLastname());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,23 +34,47 @@ public class LoginDaoImpl {
 		return result;
 	}
 	
-	public boolean validate(User user) 
+	public User getUser(String username,String password) 
 	{
-		boolean status=false;  
-		loadDriver(dbdriver);
-		Connection con = getConnection();
-		String sql = "select * from User where Username=? and Password=?";
+		DatabaseConnection databaseCon=new DatabaseConnection();
+
+		User user=null;
+
+		//load the database driver
+		databaseCon.loadDriver();
+		
+		//create connection to database with parameter
+		Connection con = databaseCon.getConnection();
+		
+		//Query
+		String sql = "select username,passwd,firstname,lastname from User where Username=? and Passwd=? "  ;
 		try {
+					
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, user.getUname());
-			ps.setString(2, user.getPassword());
+			
+			//set where parameter
+			ps.setString(1, username);
+			ps.setString(2, password);
+			
 			ResultSet rs=ps.executeQuery();  
-			status=rs.next();  
+			while(rs.next())
+			{
+				//get select parameter
+				user=new User();
+				String usern = rs.getString("username");
+				String pass = rs.getString("passwd");
+			    String firstname = rs.getString("firstname");
+			    String lastname = rs.getString("lastname");
+			    user.setFirstname(firstname);
+			    user.setLastname(lastname);
+			    user.setUname(usern);
+			    user.setPasswd(pass);
+			}
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return status;
+		return user;
 	}
 	
 	

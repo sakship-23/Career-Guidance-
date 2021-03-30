@@ -21,9 +21,9 @@
 	background-color: white;
 	border: none;
 	color: white;
-	font-size: 16px;
-	margin: 2px 1px;
-	padding: 8px 30px;
+	font-size: 10px;
+	margin: 1px 1px;
+	padding: 8px 20px;
 }
 
 .button {
@@ -73,20 +73,24 @@ img {
 
 		<div class="loginform">
 		
-			<form name="myform" action="login" method="post">
+			<form name="myform" action="login">
 				<h2 style="color: #2F4F4F;">Log In</h2>
 				<table>
 					<tr>
-						<td style="color: #5F9EA0;">Enter Username :</td>
+						<td style="color: #5F9EA0;"> Username :</td>
 						<td><input type="text" name="uname"></td>
 					</tr>
 					<tr>
 						<td style="color: #5F9EA0;">Password :</td>
-						<td><input type="password" name="password"></td>
+						<td><input type="password" name="passwd"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="submit" value="Login"></td>
+						<td ><input type="submit" value="Login" class="button" ></td>
+					</tr>
+					<tr>
+					<td></td>
+						<td><input type="submit" value="FreeUser" class="button"></td>
 					</tr>
 				</table>
 				<%
