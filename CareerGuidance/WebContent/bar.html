@@ -7,8 +7,34 @@
 <div id="piechart"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<style type="text/css">
+.button{
+	background-color: white;
+	border: #000000;
+	color: white;
+	font-size: 20px;
+	margin: 2px 2px;
+	padding:5px 10px;
+}
+
+.button {
+	background-color:#48D1CC;
+	color: white;
+}
+
+.button:hover {
+	background-color: #5F9EA0;
+	color: white;
+}
+body{
+        background-color:#FFE4E1;
+    }
+</style>
 
 <script type="text/javascript">
+function selectcourse() {
+	location.replace("http://localhost:8080/CareerGuidance/selectcourse.jsp")
+}
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -30,6 +56,6 @@ function drawChart() {
   chart.draw(data, options);
 }
 </script>
-
+<td><input type="button" name="" value="Next"  onclick="selectcourse()" class="button" ></td>
 </body>
 </html>

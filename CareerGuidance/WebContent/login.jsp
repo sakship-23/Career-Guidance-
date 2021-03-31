@@ -14,6 +14,9 @@
 			return false;
 		}
 	}
+	function freeuser() {
+		location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
+	}
 </script>
 
 <style type="text/css">
@@ -90,7 +93,7 @@ img {
 					</tr>
 					<tr>
 					<td></td>
-						<td><input type="submit" value="FreeUser" class="button"></td>
+						<td><input type="button" value="FreeUser" class="button" onclick="freeuser()"></td>
 					</tr>
 				</table>
 				<%

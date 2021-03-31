@@ -3,8 +3,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Aptitude</title>
-<script src="aptitude.js"></script>
+<script src="aptitude.js">
+function freeuser(){
 
+	location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
+}
+</script>
+<style type="text/css">
+.button{
+	background-color: white;
+	border: #000000;
+	color: white;
+	font-size: 20px;
+	margin: 2px 2px;
+	padding:5px 10px;
+}
+
+.button {
+	background-color:#48D1CC;
+	color: white;
+}
+
+.button:hover {
+	background-color: #5F9EA0;
+	color: white;
+}
+</style>
 </head>
 <body>
 	</body>
@@ -56,7 +80,10 @@
 <p><input type="radio" name="question15"value="Yes">Yes</p>
 <p><input type="radio" name="question15"value="No">No</p>
 </div>
-<input type="button" name="" value="I'm done" onclick="check()">
+<td>
+<input type="button" name="" value="I'm done" onclick="check()" class="button">
+<input type="button" value="Back" onclick="freeuser()"class="button">
+</td>
 </form>
 <p id="result"></p>
 </body>
