@@ -49,7 +49,89 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 		<url-pattern>/location</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<servlet-name>AddCourseServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.AddCourseController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddCourseServlet</servlet-name>
+		<url-pattern>/addcourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteCourseServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.DeleteCourseController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCourseServlet</servlet-name>
+		<url-pattern>/deletecourse</url-pattern>
+	</servlet-mapping>
 
+
+<servlet>
+		<servlet-name>ModifyCourseServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.ModifyCourseController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModifyCourseServlet</servlet-name>
+		<url-pattern>/modifycourse</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+		<servlet-name>AddLocationServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.AddLocationController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddLocationServlet</servlet-name>
+		<url-pattern>/addlocation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteLocationServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.DeleteLocationController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteLocationServlet</servlet-name>
+		<url-pattern>/deletelocation</url-pattern>
+	</servlet-mapping>
+
+
+<servlet>
+		<servlet-name>ModifyLocationServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.ModifyLocationController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModifyLocationServlet</servlet-name>
+		<url-pattern>/modifylocation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddInstituteServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.AddInstituteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddInstituteServlet</servlet-name>
+		<url-pattern>/addinstitute</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteInstituteServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.DeleteInstituteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteInstituteServlet</servlet-name>
+		<url-pattern>/deleteinstitute</url-pattern>
+	</servlet-mapping>
+
+
+<servlet>
+		<servlet-name>ModifyInstituteServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.ModifyInstituteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModifyInstituteServlet</servlet-name>
+		<url-pattern>/modifyinstitute</url-pattern>
+	</servlet-mapping>
 </web-app>  
     
     

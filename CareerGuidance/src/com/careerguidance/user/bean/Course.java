@@ -1,8 +1,24 @@
 package com.careerguidance.user.bean;
 
 public class Course {
-	private int id,parentId,instituteId;
-	private String name,parentCourseName,institutename,duration;
+	private int id,parentId,instituteId,locationId;
+	private String name,parentCourseName,institutename,duration,locationname;
+
+	public int getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
+	}
+
+	public String getLocationname() {
+		return locationname;
+	}
+
+	public void setLocationname(String locationname) {
+		this.locationname = locationname;
+	}
 
 	public int getId() {
 		return id;

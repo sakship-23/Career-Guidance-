@@ -12,13 +12,10 @@
 		location.replace("http://localhost:8080/CareerGuidance/login.jsp")
 	}
 	
-	function openForm() {
-		  document.getElementById("myForm").style.display = "block";
-		}
+	function queue() {
 
-		function closeForm() {
-		  document.getElementById("myForm").style.display = "none";
-		}
+		location.replace("http://localhost:8080/CareerGuidance/welcome.jsp")
+	}
 </script>
 <title>Insert title here</title>
 <style>
@@ -85,130 +82,260 @@ table, th, td {
 	color: white;
 }
 
-
-
-.form-popup {
-  display: none;
-  position: relative;
-  bottom: 0;
-  center: 0;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
+body {
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
 }
 
-
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+/* Add Animation */
+@
+-webkit-keyframes animatetop {
+	from {top: -300px;
+	opacity: 0
 }
 
-
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: %;
-  margin-bottom:10px;
-  opacity: 0.8;
+to {
+	top: 0;
+	opacity: 1
 }
 
-
-.form-container .cancel {
-  background-color: red;
+}
+@
+keyframes animatetop {
+	from {top: -300px;
+	opacity: 0
 }
 
+to {
+	top: 0;
+	opacity: 1
+}
 
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1
+}
 
+/* The Close Button */
+.close {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+.modal-body {
+	padding: 2px 16px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+.queues{
+  position: absolute;
+  left: 10px;
+  top: 550px;
+}
 
 
 </style>
 </head>
 
 <body>
+<script>
+// Get the modal
+
+// Get the button that opens the modal
+
+// Get the <span> element that closes the modal
+
+
+
+
+// When the user clicks the button, open the modal 
+function addLocation(){
+	var modal = document.getElementById("myModal");
+	  modal.style.display = "block";
+
+}
+function closeWindow(){
+	var modal = document.getElementById("myModal");
+	  modal.style.display = "none";
+
+}
+
+function deleteLocation(locationId){
+	
+	//location.replace("http://localhost:8080/CareerGuidance/deletelocation?id="+locationId)
+
+	var form = document.createElement("form");
+	form.method = 'POST';
+	form.action = 'http://localhost:8080/CareerGuidance/deletelocation';
+	var input = document.createElement('input');
+	input.name = "id";
+	input.value = locationId;
+	form.appendChild(input);
+	document.body.append(form);
+	form.submit();
+	
+}
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	var modal = document.getElementById("myModal");
+	if (event.target == modal) {
+	  
+    modal.style.display = "close";
+  }
+}
+</script>
+
 <div align="right">
      <%
 	String name = (String)session.getAttribute("name");
 %>
     			<button onclick="container()" class="button1" >Logout</button>
     				<h3 style="color: #8B0000"><%=name %> </h3> 
-    				 
+    			 
     </div>
+    <div class="queues" >
+    <button onclick="queue()" class="button1" class="queues">Back</button>
+    </div>
+	
 	<div align="center">
-		<h1 style="color: #000080">LOCATION</h1>
 
+		<h1 style="color: #000080">Location</h1>
+		<%
+				String msg=(String)request.getAttribute("errorAddLocation");  
+				if(msg!=null)
+				out.println("<font color=red size=4px>"+msg+"</font>");
+				
+				 
+				String smsg=(String)request.getAttribute("successAddLocation");  
+				if(smsg!=null)
+				out.println("<font color=red size=4px>"+smsg+"</font>");
+				
+				
+				String sDeleteMsg=(String)request.getAttribute("successDeleteLocation");  
+				if(sDeleteMsg!=null)
+				out.println("<font color=red size=4px>"+sDeleteMsg+"</font>");
+				
+				 
+				String eDeleteMsg=(String)request.getAttribute("errorDeleteLocation");  
+				if(eDeleteMsg!=null)
+				out.println("<font color=red size=4px>"+eDeleteMsg+"</font>");
+				
+				
+				%>
+				
+				
 		<table id="myTable">
 			<tr align="center" class="new">
-			    <th style="color: #000080">Location</th>
+				<th style="color: #000080">Location</th>
 				<th style="color: #000080">Actions</th>
 			</tr>
-			
+
 			<%
 			List<Location> locations = (List<Location>)session.getAttribute("locations");
 			for(Location location : locations) {
                 %>
 			<tr align="center">
-			
-			<td> <%= location.getName()%></td>
-			<td><input type="submit" style="color: #000080" value="MODIFY"
-					onClick="validate()" class="button">
-				<input type="button" value="Delete Row"
-					onclick="document.getElementById('myTable').deleteRow('1')"
-					style="color: #000080" class="area"></td>
+
+				<td><%= location.getName()%></td>
+
+				<td><input type="button" value="Delete Row"
+					onclick="deleteLocation(<%=location.getId()%>);" style="color: #000080"
+					class="area"></td>
 			</tr>
+
 			<%}%>
-			</table>
-			<br>
-<button class="open-button" onclick="openForm()">ADD</button>
-<div class="form-popup" id="myForm"  align="center">
-  <form action="/action_page.php" class="form-container">
-  <h2>Add new course</h2>
 
-    <label><b>Course name:</b></label>
-    <input type="text" placeholder="Course name" name="Course name">
-    
-    <label for="Parent course name">Choose a parent course:</label>
-  <select id="course" name="Parent course" >
-    <option value="science">science</option>
-    <option value="saab">arts</option>
-  </select><br>
-    
-    <label for="Institute name">Institute name:</label>
-  <select id="Institute name" name="Institute name" >
-    <option value="Mumbai">Mumbai</option>
-    <option value="Thane">Thane</option>
-  </select><br>
-<br>
-     <label><b>Duration:</b></label>
-    <input type="text" placeholder="Duration" name="Duration"> <br>
+		</table>
+		<h2>
 
-    <button type="button" class="btn">Add</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>	
-						
-		
-	
-	</body>
+			<input type="button" style="color: red" value="ADD"
+				onClick="addLocation()">
+				
+
+
+		</h2>
+	</div>
+
+
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div align="center">
+				<input type="button" style="color: red; float: right" value="X"
+					onClick="closeWindow()">
+				<h1 style="color: #000080">LOCATION</h1>
+				<form name="addlocation" action="addlocation" method="post">
+
+					<table id="myTable">
+
+						<tr>
+							<td style="color: #5F9EA0;">Location Name :</td>
+							<td><input type="text" name="cname"></td>
+						</tr>
+					</table>
+
+					<h3>
+						<input style="float: center" type="submit" value="submit"
+							class="button1">
+					</h3>
+
+
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+</body>
 </html>
-

@@ -1,8 +1,8 @@
 package com.careerguidance.user.bean;
 
 public class Institute {
-	private int instituteId,locationId;
-	private String instituteName,locationName ;
+	private int instituteId;
+	private String instituteName ;
 
 	public int getInstituteId() {
 		return instituteId;
@@ -12,13 +12,6 @@ public class Institute {
 		this.instituteId = instituteId;
 	}
 
-	public int getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
-	}
 
 	public String getInstituteName() {
 		return instituteName;
@@ -28,13 +21,6 @@ public class Institute {
 		this.instituteName = instituteName;
 	}
 	
-	public String getLocationName() {
-		return locationName;
-	}
-
-	public void setLocationName(String locationName) {
-		this.locationName = locationName;
-	}
 
 	
 }

@@ -35,9 +35,11 @@ public class LocationController extends HttpServlet {
 		
 		LocationDaoImpl locationDaoImpl=new LocationDaoImpl();
 		List<Location> list=locationDaoImpl.getLocations();
+		
+
 		 //set Course
 		HttpSession session=request.getSession();
-	      session.setAttribute("locations", list);
+	    session.setAttribute("locations", list);
 	     
 		 RequestDispatcher rd=request.getRequestDispatcher("location.jsp");  
 	        rd.forward(request,response);  		
