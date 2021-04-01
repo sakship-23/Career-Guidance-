@@ -3,16 +3,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Aptitude</title>
-<script src="aptitude.js">
-function freeuser(){
+<script src="aptitude.js"></script>
 
+<script type="text/javascript">
+function val(){
 	location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
 }
+
 </script>
+
+
 <style type="text/css">
 .button{
 	background-color: white;
-	border: #000000;
+	border:3px solid #18ab29;
 	color: white;
 	font-size: 20px;
 	margin: 2px 2px;
@@ -28,14 +32,18 @@ function freeuser(){
 	background-color: #5F9EA0;
 	color: white;
 }
+.image{
+  background-image:url(aptitude.jpeg);
+  background-size: 1700px 1200px;
 </style>
 </head>
 <body>
 	</body>
 <form name="aptitude" id="aptitude">
-<div>
+<div class="image">
+<h1 align="center" style="color: red">"Start Your Ideal Career Test"</h1>
 <p>1.Do you test the quality of parts before its shipment?</p>
-<p><input type="radio" name="question1" value="Yes"> Yes</p>
+<p><input type="radio" name="question1" value="Yes">Yes</p>
 <p><input type="radio" name="question1" value="No"> No</p>
 <P>2.Do you interested to study the structure of human body?</P>
 <p><input type="radio" name="question2" value="Yes">Yes</p>
@@ -82,8 +90,10 @@ function freeuser(){
 </div>
 <td>
 <input type="button" name="" value="I'm done" onclick="check()" class="button">
-<input type="button" value="Back" onclick="freeuser()"class="button">
 </td>
+<tr>
+<td><input type="button" value="Back" onclick="val()" class="button1">
+</tr>
 </form>
 <p id="result"></p>
 </body>

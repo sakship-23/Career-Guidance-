@@ -20,39 +20,63 @@ function login() {
 </script>
 <style type="text/css">
 .button{
-	background-color: white;
-	border: none;
-	color: white;
-	font-size: 20px;
-	margin: 2px 2px;
-	padding: 20px 40px;
+	color: black;
+                padding: 35px 55px;
+                border-radius: 10px;                
+                background: linear-gradient(to right,#FFF8DC,#FFB6C1);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border: 3px solid #000000;
+
 }
 
 .button {
-	background-color: #48D1CC;
-	color: white;
+	background-color: #48D1CC
+	color: black;
 }
 
 .button:hover {
 	background-color: #5F9EA0;
-	color: white;
+	color: black;
 }
+.button1{
+background-color: grey ;
+color: white;
+}
+
+.button1:hover {
+background-color: #C0C0C0;
+color: white;
+}
+.container{
+ position: absolute;
+ left: 10px;
+ down: 550px;
+}
+
 body{
-        background-color:#FFFFE0;
+        background-color:#FFEBCD;
     }
 
 </style>
 </head>
 <body>
 	<h1 align="center">CAREER GUIDANCE</h1>
-	<h2 align="center" style="color: red">"Navigation path to sucsess"</h2>
+	<h2 align="center" style="color: red">"Navigating path to sucsess"</h2>
+	<h3 align="center" style="color: Blue">WELCOME</h3>
+		<h4 align="center" style="color: Blue">"We will guide you for your better future"</h4>
+		<h2 align="center" style="color: red">Select Your Standard:</h2>
 	<div align= "center">
 					<table>
 					<tr>
-					<td><input type="submit" value="After 10th" onclick="aptitude()" class="button"></td>
-					<td><input type="submit" value="After 12th" onclick="selectcourse()" class="button"></td>
-					<td><input type="button" value="Back" onclick="login()" class="button"></td>
+					<td><input type="submit" value="After 10th" onclick="aptitude()" class="button" style="color: black"></td>
+					<td></td>
+					<tr>
+					<td><input type="submit" value="After 12th" onclick="selectcourse()" class="button" style="color: black"></td>
 					</tr>
+					<div class="container">
+					<td><input type="button" value="Back" onclick="login()" class="button1" class="container"></td>
+					</div>
 				</table>
 					</div>
 </body>

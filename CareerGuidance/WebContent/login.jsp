@@ -21,12 +21,14 @@
 
 <style type="text/css">
 .button {
-	background-color: white;
-	border: none;
-	color: white;
-	font-size: 10px;
-	margin: 1px 1px;
-	padding: 8px 20px;
+	color: black;
+                padding: 5px 10px;
+                border-radius: 10px;                
+                background: linear-gradient(to right,#FFF8DC,#00FFFF);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border: 3px solid #000000;
+
 }
 
 .button {
@@ -48,7 +50,6 @@
 	position: relative;
 	right: -150px;
 }
-
 .container {
 	position: relative;
 	right: 50px;
@@ -80,20 +81,20 @@ img {
 				<h2 style="color: #2F4F4F;">Log In</h2>
 				<table>
 					<tr>
-						<td style="color: #5F9EA0;"> Username :</td>
+						<td style="color: #00000;"> Username :</td>
 						<td><input type="text" name="uname"></td>
 					</tr>
 					<tr>
-						<td style="color: #5F9EA0;">Password :</td>
+						<td style="color: #00000;">Password :</td>
 						<td><input type="password" name="passwd"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td ><input type="submit" value="Login" class="button" ></td>
+						<td ><input type="submit" value="Login" class="button" style="color: black"></td>
 					</tr>
 					<tr>
 					<td></td>
-						<td><input type="button" value="FreeUser" class="button" onclick="freeuser()"></td>
+						<td><input type="button" value="FreeUser" class="button" onclick="freeuser()" style="color: black"></td>
 					</tr>
 				</table>
 				<%

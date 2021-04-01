@@ -10,7 +10,7 @@
 <style type="text/css">
 .button{
 	background-color: white;
-	border: #000000;
+border:3px solid #18ab29;
 	color: white;
 	font-size: 20px;
 	margin: 2px 2px;
@@ -35,6 +35,9 @@ body{
 function selectcourse() {
 	location.replace("http://localhost:8080/CareerGuidance/selectcourse.jsp")
 }
+function aptitude() {
+	location.replace("http://localhost:8080/CareerGuidance/aptitude.html")
+}
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -57,5 +60,6 @@ function drawChart() {
 }
 </script>
 <td><input type="button" name="" value="Next"  onclick="selectcourse()" class="button" ></td>
+<td><input type="button" name="" value="back"  onclick="aptitude()" class="button" ></td>
 </body>
 </html>
