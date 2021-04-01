@@ -27,72 +27,87 @@
 <title>Insert title here</title>
 <style>
 table, th, td {
-	border: 1px solid black;
-	background-color: #E0FFFF;
-	color: #008080;
-	padding: 7px
+  border-collapse: collapse;
+ 
+ }
+th {
+  padding: 5px;
+  color: #008B8B;
+ background-color: #ADD8E6;
 }
+td {
+  padding: 5px;
+  color: #5F9EA0;
+}
+tr:nth-child(odd) {background-color: #E0FFFF}
 
 .button {
-	background-color: white;
-	border: none;
-	color: black;
+	background-color: #AFEEEE;
+	border: black;
+	color: #008B8B;
 	font-size: 16px;
 	margin: 7px 5px;
 }
-
-.button1 {
-	background-color: white;
-	color: black;
-	border: black;
-}
-
 .button:hover {
-	background-color: green;
+	background-color: #87CEEB;
 	color: white;
 }
+.button {border-radius: 8px;}
 
-.area {
-	background-color: white;
-	border: none;
-	color: white;
-	font-size: 16px;
-	margin: 7px 5px;
-}
-
-.area {
-	background-color: white;
-	color: black;
-	border: black;
-}
-
-.area:hover {
-	background-color: red;
-	color: white;
-}
 
 .button1 {
+    			color: white;
+                padding: 10px 30px;
+                border-radius: 5px;                
+                background: linear-gradient(to right,#87CEFA,#191970);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border: 2px solid #A9A9A9;
+                }
+            .button1 {border-radius: 50%;}
+            
+.button2 {
+	background-color: grey ; 
+	color: white;
+}
+
+.button2:hover {
+	background-color: #C0C0C0;
+	color: white;
+}
+
+.button3 {
 	background-color: white;
 	border: none;
 	color: white;
-	font-size: 12px;
+	font-size: 13px;
 	margin: 2px 1px;
 	padding: 8px 30px;
+	transition-duration: 0.4s;
+	}
+.button3 {
+  background-color: #FF6347; 
+  color: black; 
 }
 
-.button1 {
-	background-color: red;
-	color: white;
+.button3:hover {
+  background-color: #FFA07A;
+  color: white;
 }
-
-.button1:hover {
-	background-color: #FF726F;
-	color: white;
-}
-
+.button3 {border-radius: 12px;} 
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
+
+.button4 {
+    			color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background: linear-gradient(to right,#B22222,#F08080);
+                cursor:pointer;
+                border: 2px solid #A9A9A9;
+                }
+.button4 {border-radius: 12px;}
 
 /* The Modal (background) */
 .modal {
@@ -251,7 +266,7 @@ window.onclick = function(event) {
 
 	</div>
 	<div class="queues" >
-    <button onclick="queue()" class="button1" class="queues">Back</button>
+    <button onclick="queue()" class="button2" class="queues">Back</button>
     </div>
 	<div align="center">
 
@@ -304,7 +319,7 @@ window.onclick = function(event) {
 
 				<td><input type="button" value="Delete Row"
 					onclick="deleteCourse(<%=course.getId()%>);" style="color: #000080"
-					class="area"></td>
+					class="button"></td>
 			</tr>
 
 			<%}%>
@@ -312,8 +327,7 @@ window.onclick = function(event) {
 		</table>
 		<h2>
 
-			<input type="button" style="color: red" value="ADD"
-				onClick="addCourse()">
+			<input type="button" class="button4" value="ADD" onClick="addCourse()">
 				
 
 
@@ -328,7 +342,7 @@ window.onclick = function(event) {
 			<div align="center">
 				<input type="button" style="color: red; float: right" value="X"
 					onClick="closeWindow()">
-				<h1 style="color: #000080">COURSE</h1>
+				<h1 style="color: #4682B4">Add Course</h1>
 				<form name="addcourse" action="addcourse" method="post">
 
 					<table id="myTable">
@@ -390,7 +404,7 @@ window.onclick = function(event) {
 
 					<h3>
 						<input style="float: center" type="submit" value="submit"
-							class="button1">
+							class="button3">
 					</h3>
 
 

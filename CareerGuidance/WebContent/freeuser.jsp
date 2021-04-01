@@ -10,7 +10,7 @@ function aptitude() {
 	location.replace("http://localhost:8080/CareerGuidance/aptitude.html")
 }
 function selectcourse() {
-	location.replace("http://localhost:8080/CareerGuidance/selectcourse.jsp")
+	location.replace("http://localhost:8080/CareerGuidance/hschierarchy")
 }
 function login() {
 

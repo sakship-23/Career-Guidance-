@@ -124,13 +124,31 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	</servlet-mapping>
 
 
-<servlet>
+    <servlet>
 		<servlet-name>ModifyInstituteServlet</servlet-name>
 		<servlet-class>com.careerguidance.user.controller.ModifyInstituteController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ModifyInstituteServlet</servlet-name>
 		<url-pattern>/modifyinstitute</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet>
+		<servlet-name>SSCHierarchyServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.SSCHierarchyController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SSCHierarchyServlet</servlet-name>
+		<url-pattern>/sschierarchy</url-pattern>
+	</servlet-mapping>
+	
+		 <servlet>
+		<servlet-name>HSCHierarchyServlet</servlet-name>
+		<servlet-class>com.careerguidance.user.controller.HSCHierarchyController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HSCHierarchyServlet</servlet-name>
+		<url-pattern>/hschierarchy</url-pattern>
 	</servlet-mapping>
 </web-app>  
     

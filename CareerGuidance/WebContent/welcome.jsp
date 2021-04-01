@@ -55,23 +55,15 @@
 }
 
 .button1 {
-	background-color: white;
-	border: none;
-	color: white;
-	font-size: 12px;
-	margin: 2px 1px;
-	padding: 8px 30px;
-}
-
-.button1 {
-	background-color: red ; 
-	color: white;
-}
-
-.button1:hover {
-	background-color: #FF726F;
-	color: white;
-}
+    			color: white;
+                padding: 10px 30px;
+                border-radius: 5px;                
+                background: linear-gradient(to right,#87CEFA,#191970);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border: 2px solid #A9A9A9;
+                }
+            .button1 {border-radius: 50%;}
 
 </style>
 </head>
