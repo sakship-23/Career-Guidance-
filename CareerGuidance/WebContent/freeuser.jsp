@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>free user</title>
 <script>
+
 function aptitude() {
 	location.replace("http://localhost:8080/CareerGuidance/aptitude.html")
 }
@@ -19,6 +20,7 @@ function login() {
 
 </script>
 <style type="text/css">
+
 .button{
 	color: black;
                 padding: 35px 55px;
@@ -42,6 +44,11 @@ function login() {
 .button1{
 background-color: grey ;
 color: white;
+ position: absolute;
+  left: 10px;
+  top: 700px;
+   padding: 10px 30px;
+   
 }
 
 .button1:hover {
@@ -55,29 +62,29 @@ color: white;
 }
 
 body{
-        background-color:#FFEBCD;
+        background-color:#FFE7FE;
     }
 
 </style>
 </head>
 <body>
-	<h1 align="center">CAREER GUIDANCE</h1>
-	<h2 align="center" style="color: red">"Navigating path to sucsess"</h2>
-	<h3 align="center" style="color: Blue">WELCOME</h3>
-		<h4 align="center" style="color: Blue">"We will guide you for your better future"</h4>
-		<h2 align="center" style="color: red">Select Your Standard:</h2>
+	<h1 align="center" style="color:#464726">CAREER GUIDANCE</h1>
+	<h2 align="center" style="color:#B62CB1">"Navigating path to your sucsess"</h2>
+	<h3 align="center" style="color: #B6B94F">WELCOME</h3>
+		<h4 align="center" style="color: #B6B94F">"We will guide you for your better future"</h4>
+		<h2 align="center" style="color: #B62CB1">Select Your Standard:</h2>
 	<div align= "center">
 					<table>
 					<tr>
-					<td><input type="submit" value="After 10th" onclick="aptitude()" class="button" style="color: black"></td>
+					<td ><input type="submit" value="After 10th" onclick="aptitude()" class="button" style="color: black"></td>
 					<td></td>
 					<tr>
 					<td><input type="submit" value="After 12th" onclick="selectcourse()" class="button" style="color: black"></td>
 					</tr>
-					<div class="container">
+					<tr>
 					<td><input type="button" value="Back" onclick="login()" class="button1" class="container"></td>
-					</div>
-				</table>
+					</tr>
+					</table>
 					</div>
 </body>
 </html>

@@ -20,24 +20,35 @@
 </script>
 
 <style type="text/css">
-.button {
-	color: black;
-                padding: 5px 10px;
-                border-radius: 10px;                
-                background: linear-gradient(to right,#FFF8DC,#00FFFF);
-                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
-                cursor:pointer;
-                border: 3px solid #000000;
-
+table, th, td {
+  border-collapse: collapse;
+ }
+th {
+  padding: 7px;
+  color: #008B8B;
+ background-color: white;
 }
+td {
+  padding: 5px;
+  color: #5F9EA0;
+  height: 60px;
+  font-size: 20px;
+}
+tr:nth-child(odd) {background-color: #E0FFFF}
+tr:nth-child(even) {background-color: white}
+
 
 .button {
-	background-color: #48D1CC;
+	background-color: white;
 	color: white;
+	padding: 5px 10px;
+    cursor:pointer;
+    border: 2px solid #B0E0E6;
+     font-size: 15px;
 }
 
 .button:hover {
-	background-color: #5F9EA0;
+	background-color: #40E0D0;
 	color: white;
 }
 
@@ -55,46 +66,49 @@
 	right: 50px;
 }
 
-img {
-	width: 450px;
-	height: 400px;
+body {
+background-image:url(login.jpeg);
+  background-size: 1500px 750px;
+  padding: 50px;
 }
 
 .loginform {
 	position: relative;
-	right: -50px;
-	down: -150px;
+	right: -400px;
+	top:280px;
 }
+p {
+  font-size: 30px;
+}
+
 </style>
 </head>
 
 <body>
-	<div class="hey" align="center" id="rcorners">
-		<div class="container" align="left">
-			<img src="career.jpg" alt="Cinque Terre" width="300" height="300"
-				align="left">
+		<div class="container" align="center">
+		<div class="body">
 		</div>
 
 		<div class="loginform">
 		
 			<form name="myform" action="login">
-				<h2 style="color: #2F4F4F;">Log In</h2>
+				<p style="color:white;">Log In</p>
 				<table>
 					<tr>
-						<td style="color: #00000;"> Username :</td>
-						<td><input type="text" name="uname"></td>
+						<td style="color: #008080;"> Username :</td>
+						<td><input type="text" name="uname" placeholder="EnterUsername"></td>
 					</tr>
 					<tr>
-						<td style="color: #00000;">Password :</td>
-						<td><input type="password" name="passwd"></td>
+						<td style="color:#008080;" >Password :</td>
+						<td><input type="password" name="passwd" placeholder="Enter Password"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td ><input type="submit" value="Login" class="button" style="color: black"></td>
+						<td ><input type="submit" value="Login" class="button" style="color: #008080"></td>
 					</tr>
 					<tr>
 					<td></td>
-						<td><input type="button" value="FreeUser" class="button" onclick="freeuser()" style="color: black"></td>
+						<td><input type="button" value="FreeUser" class="button" onclick="freeuser()" style="color: #008080"></td>
 					</tr>
 				</table>
 				<%

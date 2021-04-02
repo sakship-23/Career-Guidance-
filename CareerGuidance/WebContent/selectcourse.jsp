@@ -42,8 +42,15 @@ color: white;
 body{
         background-color:#E0FFFF;
     }
+    img {
+	width: 600px;
+	height: 700px;
+}
 </style>
-
+<div class="img">
+			<img src="sel.jpeg" alt="Cinque Terre" width="600" height="700"
+				align="right">
+		</div>
 <title>Select course</title>
 </head>
 <body>
