@@ -20,7 +20,7 @@
 	}
 	function container() {
 
-		location.replace("http://localhost:8080/CareerGuidance/login.jsp")
+		location.replace("http://localhost:8080/CareerGuidance/login")
 	}
 	
 </script>

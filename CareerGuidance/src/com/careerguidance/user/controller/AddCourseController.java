@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.careerguidance.user.bean.Course;
 import com.careerguidance.user.dao.CourseDaoImpl;
@@ -21,6 +22,8 @@ public class AddCourseController  extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+	 HttpSession session=req.getSession();
+	 if(session.getAttribute("username")!=null ) {
 	 String coursename=req.getParameter("cname");
 	 int parentcourseid=Integer.parseInt(req.getParameter("parentcourseid"));
 	 int instituteid=Integer.parseInt(req.getParameter("instituteid"));
@@ -43,6 +46,12 @@ public class AddCourseController  extends HttpServlet {
 		 req.setAttribute("errorAddCourse","Course Not Added.");
 	 }
 	 new CourseController().doGet(req, resp);
+	 }
+	 else {
+		    resp.sendRedirect("login.jsp");  
+
+	 }
+	 
 	}
 	
 	@Override

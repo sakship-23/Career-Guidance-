@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.careerguidance.user.bean.Course;
 import com.careerguidance.user.dao.CourseDaoImpl;
@@ -20,7 +21,8 @@ public class DeleteCourseController  extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	HttpSession session=req.getSession();
+	if(session.getAttribute("username")!=null ) {
 	 int courseId=Integer.parseInt(req.getParameter("id"));
 	 CourseDaoImpl courseDaoImpl=new CourseDaoImpl();
 	 boolean isCourseDelete=courseDaoImpl.deleteCourse(courseId);
@@ -32,7 +34,11 @@ public class DeleteCourseController  extends HttpServlet {
 		 req.setAttribute("errorDeleteCourse","Course Not Deleted.");
 	 }
 	 new CourseController().doGet(req, resp);
-	
+	 }
+	 else {
+		    resp.sendRedirect("login.jsp");  
+
+	 }
 	}
 	
 	@Override

@@ -29,16 +29,20 @@ public class InstituteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		 HttpSession session=request.getSession();
+		 if(session.getAttribute("username")!=null ) {
 		InstituteDaoImpl instituteDaoImpl=new InstituteDaoImpl();
 		List<Institute> list=instituteDaoImpl.getInstitutes();
 		 //set Course
-		HttpSession session=request.getSession();
 	      session.setAttribute("institutes", list);
 	     
 		 RequestDispatcher rd=request.getRequestDispatcher("institute.jsp");  
 	        rd.forward(request,response);  		
-		
+		 }
+		 else {
+			    response.sendRedirect("login.jsp");  
+
+		 }
 	}
 
 	/**

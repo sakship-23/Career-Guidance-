@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.careerguidance.user.bean.Course;
 import com.careerguidance.user.bean.Location;
@@ -22,7 +23,8 @@ public class AddLocationController  extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		 HttpSession session=req.getSession();
+		 if(session.getAttribute("username")!=null ) {
 	 String locationname=req.getParameter("cname");
 	
 
@@ -38,6 +40,11 @@ public class AddLocationController  extends HttpServlet {
 		 req.setAttribute("errorAddLocation","Location Not Added.");
 	 }
 	 new LocationController().doGet(req, resp);
+		 }
+		 else {
+			    resp.sendRedirect("login.jsp");  
+ 
+		 }
 	}
 	
 	@Override

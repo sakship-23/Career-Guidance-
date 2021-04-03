@@ -32,7 +32,8 @@ public class CourseController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		 HttpSession session=request.getSession();
+		 if(session.getAttribute("username")!=null ) {
 		CourseDaoImpl courseDaoImpl=new CourseDaoImpl();
 		List<Course> list=courseDaoImpl.getCourses();
 		List<ParentCourse> parentCourselist=courseDaoImpl.getParentCourse();
@@ -44,14 +45,18 @@ public class CourseController extends HttpServlet {
 		List<Location> locations=locationDaoImpl.getLocations();
 		
 		 //set Course
-		HttpSession session=request.getSession();
 	      session.setAttribute("courses", list);
 	      session.setAttribute("parentcourses", parentCourselist);
 	      session.setAttribute("institutes", institutes);
 	      session.setAttribute("locations", locations);
 
 		 RequestDispatcher rd=request.getRequestDispatcher("course.jsp");  
-	     rd.forward(request,response);  		
+	     rd.forward(request,response);  
+		 }
+		 else {
+			    response.sendRedirect("login.jsp");  
+
+		 }
 		
 	}
 

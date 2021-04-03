@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.careerguidance.user.bean.Course;
 import com.careerguidance.user.dao.CourseDaoImpl;
@@ -21,7 +22,8 @@ public class DeleteLocationController  extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		 HttpSession session=req.getSession();
+		 if(session.getAttribute("username")!=null ) {
 	 int locationId=Integer.parseInt(req.getParameter("id"));
 	 
 	 LocationDaoImpl locationDaoImpl=new LocationDaoImpl();
@@ -34,6 +36,11 @@ public class DeleteLocationController  extends HttpServlet {
 		 req.setAttribute("errorDeleteLocation","Location Not Deleted.");
 	 }
 	 new LocationController().doGet(req, resp);
+	 }
+	 else {
+		    resp.sendRedirect("login.jsp");  
+
+	 }
 	
 	}
 	
