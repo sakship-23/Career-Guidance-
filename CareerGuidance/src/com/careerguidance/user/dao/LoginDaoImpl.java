@@ -1,7 +1,5 @@
 package com.careerguidance.user.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
@@ -16,12 +14,11 @@ public class LoginDaoImpl {
 	public String insert(User user) 
 	{
 		DatabaseConnection databaseCon=new DatabaseConnection();
-		databaseCon.loadDriver();
-		Connection con = databaseCon.getConnection();
+		
 		String result = "Data entered successfully";
 		String sql = "insert into user values(null,?,?,?,?)";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setString(1, user.getUname());
 			ps.setString(2, user.getPasswd());
 			ps.setString(3, user.getFirstname());
@@ -41,16 +38,15 @@ public class LoginDaoImpl {
 		User user=null;
 
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		
 		//Query
 		String sql = "select username,passwd,firstname,lastname from User where Username=? and Passwd=? "  ;
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			
 			//set where parameter
 			ps.setString(1, username);

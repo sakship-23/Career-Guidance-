@@ -26,6 +26,19 @@
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+body{
+        background-color:#FFE7FE;
+    }
+.button {
+	background-color: grey ; 
+	color: white;
+	padding: 10px 30px;
+}
+
+.button:hover {
+	background-color: #C0C0C0;
+	color: white;
+}
 
 </style>
 <body>

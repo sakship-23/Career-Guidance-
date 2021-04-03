@@ -3,14 +3,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body{
+        background-color:#FFE7FE;
+    }
+.button {
+	background-color: grey ; 
+	color: white;
+	padding: 5px 10px;
+}
+
+.button:hover {
+	background-color: #C0C0C0;
+	color: white;
+}
+</style>
 <meta charset="ISO-8859-1">
 <script type="text/javascript">
 
 	function back() {
-		location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
+		location.replace("http://localhost:8080/CareerGuidance/sschierarchy")
 	}
 </script>
 <title>Insert title here</title>
+
 </head>
 <body>
 <form name="myform" action="login">

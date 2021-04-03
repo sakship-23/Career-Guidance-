@@ -26,7 +26,6 @@ public class AddCourseController  extends HttpServlet {
 	 int instituteid=Integer.parseInt(req.getParameter("instituteid"));
 	 String duration=req.getParameter("duration");
 	 int locationid=Integer.parseInt(req.getParameter("locationid"));
-
 	 CourseDaoImpl courseDaoImpl=new CourseDaoImpl();
 	 int id=courseDaoImpl.fetchMaxCourseId();
 	 Course course=new Course();

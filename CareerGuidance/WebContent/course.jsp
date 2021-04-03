@@ -198,7 +198,7 @@ to {
 .queues{
   position: absolute;
   left: 10px;
-  top: 550px;
+  top: 170px;;
 }
 </style>
 </style>

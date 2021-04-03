@@ -27,9 +27,22 @@
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+.button {
+	background-color: grey ; 
+	color: white;
+	padding: 10px 30px;
+}
+
+.button:hover {
+	background-color: #C0C0C0;
+	color: white;
+}
+body{
+        background-color:#FFE7FE;
+    }
 
 </style>
-<body>
+<body >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 
 <td><input type="button" value="Back" onclick="back()" class="button"></td>
@@ -44,8 +57,8 @@ function back(){
 
 alert('Click on each course to check Institute Information. \n If institute Information contains link then used that link to fetch information.');
 var margin = {top: 40, right: 120, bottom: 40, left: 120},
-    width = 1000 ,
-    height = 1000 ;
+    width = 1500 ,
+    height = 800 ;
 
 var i = 0,
     duration = 900,

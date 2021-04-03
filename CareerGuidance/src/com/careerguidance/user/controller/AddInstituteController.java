@@ -26,8 +26,6 @@ public class AddInstituteController  extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 	 String institutename=req.getParameter("cname");
-	
-
 	 InstituteDaoImpl instituteDaoImpl=new InstituteDaoImpl();
 	 int id=instituteDaoImpl.fetchMaxInstituteId();
 	 Institute institute=new Institute();

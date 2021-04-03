@@ -23,18 +23,17 @@ public class LocationDaoImpl {
 
 
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		
 		//Query
 		StringBuilder builder=new StringBuilder();
 		builder.append("select l.id,l.name from Location l ");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			
 			
 			ResultSet rs=ps.executeQuery();  
@@ -64,19 +63,18 @@ public List<Location> getParentLocation()
 
 
 	//load the database driver
-	databaseCon.loadDriver();
+	
 	
 	//create connection to database with parameter
-	Connection con = databaseCon.getConnection();
 	
 	//Query
 	StringBuilder builder=new StringBuilder();
 	builder.append("select l.id,l.name from Location l;");
 	
 	String sql = builder.toString();
-	try {
+	try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);) {
 				
-		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs=ps.executeQuery();  
 		while(rs.next())
 		{
@@ -99,17 +97,16 @@ public List<Location> getParentLocation()
 public boolean insertLocation(Location location) {
 	DatabaseConnection databaseCon=new DatabaseConnection();
 	//load the database driver
-	databaseCon.loadDriver();
+	
 	
 	//create connection to database with parameter
-	Connection con = databaseCon.getConnection();
 	StringBuilder builder=new StringBuilder();
 	int id=fetchMaxLocationId();
 	builder.append("insert into Location values(?, ?);");
 	String sql = builder.toString();
-	try {
+	try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);) {
 				
-		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1,id);
 		ps.setString(2, location.getName());
 	
@@ -129,17 +126,16 @@ public int fetchMaxLocationId() {
 
 
 	//load the database driver
-	databaseCon.loadDriver();
+	
 	
 	//create connection to database with parameter
-	Connection con = databaseCon.getConnection();
 	StringBuilder builder=new StringBuilder();
 	builder.append("select max(id) as id from Location;");
 	int id = 0;
 	String sql = builder.toString();
-	try {
+	try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);) {
 				
-		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs=ps.executeQuery();  
 		while(rs.next())
 		{
@@ -158,16 +154,15 @@ public int fetchMaxLocationId() {
 public boolean deleteParentLocation(int id) {
 	DatabaseConnection databaseCon=new DatabaseConnection();
 	//load the database driver
-	databaseCon.loadDriver();
+	
 	
 	//create connection to database with parameter
-	Connection con = databaseCon.getConnection();
 	StringBuilder builder=new StringBuilder();
 	builder.append("Delete from Location where id=?");
 	String sql = builder.toString();
-	try {
+	try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);) {
 				
-		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, id);
 		ps.executeUpdate();  
 	
@@ -181,16 +176,15 @@ public boolean deleteParentLocation(int id) {
 public boolean modifyLocation(String location) {
 	DatabaseConnection databaseCon=new DatabaseConnection();
 	//load the database driver
-	databaseCon.loadDriver();
+	
 	
 	//create connection to database with parameter
-	Connection con = databaseCon.getConnection();
 	StringBuilder builder=new StringBuilder();
 	builder.append("update Location set name=? where id=?");
 	String sql = builder.toString();
-	try {
+	try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);) {
 				
-		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, location);
 		
         ps.executeUpdate();  

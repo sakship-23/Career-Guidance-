@@ -17,7 +17,7 @@ public class HierarchyDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
 		Connection con = databaseCon.getConnection();
@@ -99,10 +99,9 @@ public class HierarchyDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 
 		// Query
 		StringBuilder builder = new StringBuilder();
@@ -112,9 +111,9 @@ public class HierarchyDaoImpl {
 		String sql = builder.toString();
 		List<Hierarchy> sciencelist = new ArrayList<Hierarchy>();
 
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// get select parametere
@@ -148,10 +147,9 @@ public class HierarchyDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 
 		// Query
 		StringBuilder builder = new StringBuilder();
@@ -161,9 +159,9 @@ public class HierarchyDaoImpl {
 		String sql = builder.toString();
 		List<Hierarchy> commercelist = new ArrayList<Hierarchy>();
 
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// get select parametere
@@ -197,10 +195,9 @@ public class HierarchyDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 
 		// Query
 		StringBuilder builder = new StringBuilder();
@@ -210,9 +207,9 @@ public class HierarchyDaoImpl {
 		String sql = builder.toString();
 		List<Hierarchy> artsList = new ArrayList<Hierarchy>();
 
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// get select parametere

@@ -46,7 +46,7 @@ background-color: grey ;
 color: white;
  position: absolute;
   left: 10px;
-  top: 700px;
+  top: 560px;
    padding: 10px 30px;
    
 }

@@ -5,7 +5,6 @@ function check(){
 	var arts=0;
 	var commerce=0;
 	
-
 	
 	var q1=document.aptitude.question1.value;
 	var q2=document.aptitude.question2.value;
@@ -21,7 +20,9 @@ function check(){
 	var q12=document.aptitude.question12.value;
 	var q13=document.aptitude.question13.value;
     var q14=document.aptitude.question14.value;	
-    var q15=document.aptitude.question14.value;
+    var q15=document.aptitude.question15.value;
+  
+    
     if (q1=="Yes") (science++)
 	if (q2=="Yes") (science++)
 	if (q3=="Yes") (commerce++)

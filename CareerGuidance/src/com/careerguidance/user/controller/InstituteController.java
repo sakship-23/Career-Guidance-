@@ -18,7 +18,6 @@ import com.careerguidance.user.bean.User;
 import com.careerguidance.user.dao.CourseDaoImpl;
 import com.careerguidance.user.dao.InstituteDaoImpl;
 import com.careerguidance.user.dao.LoginDaoImpl;
-import com.careerguidance.user.service.LoginServiceImpl;
 
 /**
  * Servlet implementation class LoginController

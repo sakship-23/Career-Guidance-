@@ -25,34 +25,17 @@
 	
 </script>
 <style>
-#rcorners2 {
-	border-radius: 25px;
-	border: 2px solid #5F9EA0;
-	padding: 100px;
-	width: 400px;
-	height: 250px;
-	position: relative;
-	right: -350px;
-}
 
 .button {
-	background-color: white;
-	border: none;
-	color: white;
-	font-size: 16px;
-	margin: 7px 5px;
-}
-
-.button {
-	background-color: white;
-	color: #4B0082;
-	border: black;
-}
-
-.button:hover {
-	background-color: #DDA0DD;
-	color: white;
-}
+    			color: white;
+                padding: 10px 30px;
+                border-radius: 5px;
+                background: linear-gradient(to right,#B22222,#F08080);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border: 2px solid #A9A9A9;
+                }
+.button {border-radius: 12px;}
 
 .button1 {
     			color: white;
@@ -69,27 +52,28 @@
 </head>
 
 
-<body>
- 
+<body style="background-color:#008B8B;">
+
     <div align="right">
      <%
 	String name = (String)session.getAttribute("name");
 %>
     			<button onclick="container()" class="button1" >Logout</button>
     				<h3 style="color: #8B0000"><%=name %> </h3> 
-    				 <h1 align="center"  style="color: #5F9EA0;">Career Guidance</h1>
+    				 <h1 align="center"  style="color: black;">Career Guidance</h1>
     </div>
    
-	<div style="color: #8A2BE2" id="rcorners2">
+	<div style="color: #8A2BE2">
 		<h1 align="center">
-					Course<br>
-			<button onclick="course()" class="button">Click</button>
-			<br> Institute<br>
-			<button onclick="institute()" class="button">Click</button>
-			<br> Location<br>
-			<button onclick="area()" class="button">Click</button>
+					
+			<button onclick="course()" class="button">Add Course</button>
+			<br> <br>
+			<button onclick="institute()" class="button">Add Institute</button>
+			<br> <br>
+			<button onclick="area()" class="button">Add Location</button>
 			<br> <br>
 		</h1>
 	</div>
+	
 </body>
 </html>

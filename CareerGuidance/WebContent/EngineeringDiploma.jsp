@@ -7,7 +7,7 @@
 <script type="text/javascript">
 
 	function back() {
-		location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
+		location.replace("http://localhost:8080/CareerGuidance/sschierarchy")
 	}
 </script>
 <title>Insert title here</title>

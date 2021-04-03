@@ -22,18 +22,17 @@ public class InstituteDaoImpl {
 
 
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		
 		//Query
 		StringBuilder builder=new StringBuilder();
 		builder.append("select i.id as instituteId,i.name as instituteName from Institute i  ");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			
 			
 			ResultSet rs=ps.executeQuery();  
@@ -64,19 +63,18 @@ public class InstituteDaoImpl {
 
 
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		
 		//Query
 		StringBuilder builder=new StringBuilder();
 		builder.append("select i.id as instituteId,i.name as instituteName from Institute i;");
 		
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next())
 			{
@@ -99,17 +97,16 @@ public class InstituteDaoImpl {
 	public boolean insertInstitute(Institute institute) {
 		DatabaseConnection databaseCon=new DatabaseConnection();
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder=new StringBuilder();
 		int id=fetchMaxInstituteId();
 		builder.append("insert into Institute values(?, ?);");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,id);
 			ps.setString(2, institute.getInstituteName());
 		
@@ -129,17 +126,15 @@ public class InstituteDaoImpl {
 
 
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder=new StringBuilder();
 		builder.append("select max(id) as id from Institute;");
 		int id = 0;
 		String sql = builder.toString();
-		try {
-					
-			PreparedStatement ps = con.prepareStatement(sql);
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {	
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next())
 			{
@@ -158,16 +153,15 @@ public class InstituteDaoImpl {
 	public boolean deleteParentInstitute(int id) {
 		DatabaseConnection databaseCon=new DatabaseConnection();
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder=new StringBuilder();
 		builder.append("Delete from Institute where id=?");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();  
 		
@@ -181,16 +175,15 @@ public class InstituteDaoImpl {
 	public boolean modifyInstitute(String institute) {
 		DatabaseConnection databaseCon=new DatabaseConnection();
 		//load the database driver
-		databaseCon.loadDriver();
+		
 		
 		//create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder=new StringBuilder();
 		builder.append("update Institute set name=? where id=?");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 					
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, institute);
 			
 	        ps.executeUpdate();  

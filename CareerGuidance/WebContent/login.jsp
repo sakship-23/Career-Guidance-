@@ -6,34 +6,31 @@
 <title>Log In</title>
 <meta charset="ISO-8859-1">
 <script type="text/javascript">
-	function validate() {
-		var uname = document.myform.uname.value;
-		if (uname == "") {
-			alert("Please enter username");
-			document.myform.username.focus();
-			return false;
-		}
-	}
+	
 	function freeuser() {
 		location.replace("http://localhost:8080/CareerGuidance/freeuser.jsp")
 	}
 </script>
 
 <style type="text/css">
+
+
 table, th, td {
   border-collapse: collapse;
  }
 th {
-  padding: 7px;
+  padding: 20px;
   color: #008B8B;
  background-color: white;
 }
 td {
   padding: 5px;
   color: #5F9EA0;
-  height: 60px;
+  height: 40px;
   font-size: 20px;
 }
+
+
 tr:nth-child(odd) {background-color: #E0FFFF}
 tr:nth-child(even) {background-color: white}
 
@@ -68,19 +65,18 @@ tr:nth-child(even) {background-color: white}
 
 body {
 background-image:url(login.jpeg);
-  background-size: 1500px 750px;
+  background-size:1300px 650px;
   padding: 50px;
 }
 
 .loginform {
 	position: relative;
-	right: -400px;
-	top:280px;
+	right: -107px;
+	top:200px;
 }
 p {
   font-size: 30px;
 }
-
 </style>
 </head>
 
@@ -91,7 +87,7 @@ p {
 
 		<div class="loginform">
 		
-			<form name="myform" action="login">
+			<form name="myform" action="login" method="post">
 				<p style="color:white;">Log In</p>
 				<table>
 					<tr>

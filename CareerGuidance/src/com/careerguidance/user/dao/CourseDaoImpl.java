@@ -19,7 +19,7 @@ public class CourseDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
 		Connection con = databaseCon.getConnection();
@@ -78,10 +78,10 @@ public class CourseDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
+		
 
 		// Query
 		StringBuilder builder = new StringBuilder();
@@ -89,9 +89,11 @@ public class CourseDaoImpl {
 				"select distinct c.id,c.name from course c ;");
 
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);)
+		{
 
-			PreparedStatement ps = con.prepareStatement(sql);
+			
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// get select parameter
@@ -113,16 +115,15 @@ public class CourseDaoImpl {
 	public boolean insertCourse(Course course) {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder = new StringBuilder();
 		builder.append("insert into Course values(?,?,?,?,?,?);");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+		PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, course.getId());
 			ps.setString(2, course.getName());
 			ps.setInt(3, course.getParentId());
@@ -144,17 +145,16 @@ public class CourseDaoImpl {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder = new StringBuilder();
 		builder.append("select max(id) as id from Course;");
 		int id = 0;
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// get select parameter
@@ -173,16 +173,15 @@ public class CourseDaoImpl {
 	public boolean deleteCourse(int id) {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder = new StringBuilder();
 		builder.append("Delete from Course where id=?");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();
 
@@ -196,16 +195,15 @@ public class CourseDaoImpl {
 	public boolean deleteParentCourse(int id) {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder = new StringBuilder();
 		builder.append("Delete from Course where parentid=?");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();
 
@@ -219,16 +217,15 @@ public class CourseDaoImpl {
 	public boolean modifyCourse(int id, int parentId, int instituteId, String name, String duration, String location) {
 		DatabaseConnection databaseCon = new DatabaseConnection();
 		// load the database driver
-		databaseCon.loadDriver();
+		
 
 		// create connection to database with parameter
-		Connection con = databaseCon.getConnection();
 		StringBuilder builder = new StringBuilder();
 		builder.append("update Course set name=?,parentid=?,instituteid=?,duration=?,location=? where id=?");
 		String sql = builder.toString();
-		try {
+		try (Connection con = databaseCon.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setInt(2, parentId);
 			ps.setInt(3, instituteId);
